@@ -1,0 +1,38 @@
+{
+  "name": "duck-pond-adventure",
+  "version": "1.0.0",
+  "description": "A fun web-based duck game built with HTML5 Canvas, JavaScript, and CSS",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx serve . -p 8000",
+    "dev": "npx serve . -p 8000",
+    "build": "echo 'No build step required - static files ready for deployment'",
+    "deploy": "echo 'Deploy static files to your preferred hosting service'"
+  },
+  "keywords": [
+    "game",
+    "html5",
+    "canvas",
+    "javascript",
+    "duck",
+    "web-game",
+    "casual-game"
+  ],
+  "author": "Duck Game Developer",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/duck-pond-adventure.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yourusername/duck-pond-adventure/issues"
+  },
+  "homepage": "https://yourusername.github.io/duck-pond-adventure",
+  "devDependencies": {},
+  "dependencies": {},
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+}

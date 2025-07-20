@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Duck Pond Adventure - A fun web-based duck game where you collect items in a peaceful pond setting">
+    <meta name="keywords" content="duck game, web game, HTML5 canvas, casual game">
+    <meta name="author" content="Duck Game Developer">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Duck Pond Adventure">
+    <meta property="og:description" content="A fun web-based duck game where you collect items in a peaceful pond setting">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="">
+    <meta property="og:image" content="assets/images/duck-preview.png">
+    
+    <title>Duck Pond Adventure</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="assets/images/duck-icon.png" type="image/png">
+</head>
+<body>
+    <div class="game-container">
+        <header class="game-header">
+            <h1>Duck Pond Adventure</h1>
+            <div class="game-info">
+                <div class="score-display">
+                    <span>Score: </span>
+                    <span id="score">0</span>
+                </div>
+                <div class="controls-info">
+                    <span class="desktop-controls">Use arrow keys to move</span>
+                    <span class="mobile-controls">Touch and drag to move</span>
+                </div>
+            </div>
+        </header>
+        
+        <main class="game-main">
+            <canvas id="gameCanvas" width="800" height="600"></canvas>
+            <div class="game-overlay" id="gameOverlay">
+                <div class="overlay-content">
+                    <h2 id="overlayTitle">Welcome to Duck Pond Adventure!</h2>
+                    <p id="overlayMessage">Collect breadcrumbs (10pts), fish (25pts), and water lilies (50pts)</p>
+                    <button id="startBtn" class="game-btn">Start Game</button>
+                    <button id="pauseBtn" class="game-btn" style="display: none;">Pause</button>
+                    <button id="restartBtn" class="game-btn" style="display: none;">Restart</button>
+                </div>
+            </div>
+        </main>
+        
+        <footer class="game-footer">
+            <div class="game-stats">
+                <span>Items Collected: <span id="itemsCollected">0</span></span>
+                <span>Time: <span id="gameTime">0:00</span></span>
+            </div>
+        </footer>
+    </div>
+    
+    <!-- Mobile Touch Controls -->
+    <div class="mobile-joystick" id="mobileJoystick">
+        <div class="joystick-outer">
+            <div class="joystick-inner" id="joystickInner"></div>
+        </div>
+    </div>
+    
+    <script src="game.js"></script>
+</body>
+</html>

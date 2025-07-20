@@ -1,0 +1,336 @@
+/* Duck Pond Adventure - CSS Styles */
+
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #87CEEB 0%, #4682B4 100%);
+    color: #2c3e50;
+    overflow: hidden;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+/* Game Container Layout */
+.game-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+/* Header Styles */
+.game-header {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    padding: 15px 20px;
+    margin-bottom: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.game-header h1 {
+    color: #2980b9;
+    font-size: 2.2em;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.game-info {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.score-display {
+    background: #f39c12;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 1.2em;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.controls-info {
+    font-size: 0.9em;
+    color: #7f8c8d;
+}
+
+.mobile-controls {
+    display: none;
+}
+
+/* Main Game Area */
+.game-main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 20px;
+    backdrop-filter: blur(10px);
+}
+
+/* Canvas Styles */
+#gameCanvas {
+    border: 3px solid #2980b9;
+    border-radius: 15px;
+    background: linear-gradient(to bottom, #87CEEB 0%, #4682B4 100%);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    max-width: 100%;
+    max-height: 100%;
+    image-rendering: pixelated; /* For crisp pixel art if needed */
+}
+
+/* Game Overlay */
+.game-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    z-index: 100;
+}
+
+.overlay-content {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+    max-width: 400px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.overlay-content h2 {
+    color: #2980b9;
+    margin-bottom: 15px;
+    font-size: 1.8em;
+}
+
+.overlay-content p {
+    margin-bottom: 25px;
+    color: #7f8c8d;
+    line-height: 1.6;
+}
+
+/* Button Styles */
+.game-btn {
+    background: linear-gradient(45deg, #3498db, #2980b9);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    margin: 5px;
+    border-radius: 25px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+}
+
+.game-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
+}
+
+.game-btn:active {
+    transform: translateY(0);
+}
+
+/* Footer Styles */
+.game-footer {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    padding: 15px 20px;
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.game-stats {
+    display: flex;
+    gap: 30px;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+.game-stats span {
+    background: #ecf0f1;
+    padding: 8px 16px;
+    border-radius: 15px;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Mobile Touch Controls */
+.mobile-joystick {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    display: none;
+    z-index: 1000;
+}
+
+.joystick-outer {
+    width: 100px;
+    height: 100px;
+    background: rgba(255, 255, 255, 0.3);
+    border: 3px solid rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    position: relative;
+    backdrop-filter: blur(10px);
+}
+
+.joystick-inner {
+    width: 40px;
+    height: 40px;
+    background: #3498db;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.1s ease;
+    box-shadow: 0 4px 15px rgba(52, 152, 219, 0.4);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .game-container {
+        padding: 5px;
+    }
+    
+    .game-header {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+    
+    .game-header h1 {
+        font-size: 1.8em;
+    }
+    
+    .game-info {
+        justify-content: center;
+    }
+    
+    .desktop-controls {
+        display: none;
+    }
+    
+    .mobile-controls {
+        display: inline;
+    }
+    
+    .mobile-joystick {
+        display: block;
+    }
+    
+    #gameCanvas {
+        width: 100%;
+        height: auto;
+        max-height: 70vh;
+    }
+    
+    .overlay-content {
+        margin: 20px;
+        padding: 30px 20px;
+    }
+    
+    .game-stats {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .game-header h1 {
+        font-size: 1.5em;
+    }
+    
+    .score-display {
+        font-size: 1em;
+        padding: 6px 12px;
+    }
+    
+    .overlay-content h2 {
+        font-size: 1.5em;
+    }
+    
+    .game-btn {
+        padding: 10px 20px;
+        font-size: 1em;
+    }
+}
+
+/* Animation Classes */
+.fade-in {
+    animation: fadeIn 0.5s ease-in;
+}
+
+.fade-out {
+    animation: fadeOut 0.5s ease-out;
+}
+
+.bounce {
+    animation: bounce 0.6s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; transform: scale(1); }
+    to { opacity: 0; transform: scale(0.9); }
+}
+
+@keyframes bounce {
+    0%, 20%, 60%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-10px); }
+    80% { transform: translateY(-5px); }
+}
+
+/* Game-specific animations */
+.score-popup {
+    position: absolute;
+    color: #f39c12;
+    font-weight: bold;
+    font-size: 1.2em;
+    pointer-events: none;
+    z-index: 50;
+    animation: scorePopup 1s ease-out forwards;
+}
+
+@keyframes scorePopup {
+    0% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-30px) scale(1.2);
+    }
+}
